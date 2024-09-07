@@ -1,0 +1,10 @@
+import  pandas as pd
+coffee = pd.read_csv('coffee.csv')
+print(coffee.head())
+results = pd.read_parquet('results.parquet')
+print(results.head())
+olympics_data = pd.read_excel('olympics-data.xlsx')
+print(olympics_data.head())
+bios = pd.read_csv('bios.csv')
+bios.to_parquet()
+print(bios.head())
