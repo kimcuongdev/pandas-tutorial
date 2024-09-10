@@ -47,3 +47,18 @@ print(bios_new[['name','born_datetime','born_year']].head())
 
 #Save
 bios_new.to_csv('bios_new.csv',index=False)
+
+#apply()
+#apply được truyền một lambda function
+bios['height_category'] = bios['height_cm'].apply(lambda x: 'Short' if x < 165 else ('Average' if x < 185 else 'Tall'))
+print(bios[['name','height_cm','height_category']].head())
+#apply được truyền một hàm
+def category_athlete(row):
+    if row['height_cm'] < 165 and row['weight_kg'] < 70:
+        return 'Light Weight'
+    elif row['height_cm'] < 185 or row['weight_kg'] <= 80:
+        return 'Middle Weight'
+    else:
+        return 'Heavy Weight'
+bios['Category'] = bios.apply(category_athlete, axis = 1) #axis = 1 để áp dụng lên hàng
+print(bios[['name','weight_kg','height_cm','height_category','Category']].head())
