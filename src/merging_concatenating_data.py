@@ -18,6 +18,14 @@ bios_new.drop(columns=['NOC_y'],inplace=True)
 print(bios_new[bios_new['NOC_x'] != bios_new['born_country_full']][['name','born_country','NOC_x','born_country_full']].head())
 
 #concat([df1,df2])
+'''
+pd.concat(): Used to concatenate DataFrames 
+        either vertically (by rows) or horizontally (by columns).
+The 'objs' parameter is a sequence or mapping of Series or DataFrame objects to be concatenated.
+The 'axis' parameter determines the direction of concatenation:
+        axis=0 is set as the default value, which means it will concatenate DataFrames vertically (by rows).
+        axis=1 will concatenate DataFrames horizontally (by columns).
+'''
 usa = bios[bios['born_country'] == 'USA'].copy()
 print(usa.head())
 gbr = bios[bios['born_country'] == 'GBR'].copy()
